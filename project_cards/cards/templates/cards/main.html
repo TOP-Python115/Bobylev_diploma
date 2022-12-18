@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'cards/main.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  {% if chapter_list %}
+  <div class="content">
+    {% for chapter in chapter_list %}
+    <div class="raw">
+      <div class="image">
+        {% if chapter.image_url %}
+        <img src="{{ chapter.image_url }}" alt="image" class="chapter_image">
+        {% else %}
+        <img src="{% static 'cards/no_image_64x64.jpg' %}" alt="image" class="chapter_image">
+        {% endif %}
+      </div>
+      <div class="chapter_name">
+        <p>{{ chapter.name }}</p>
+      </div>
+      <div class="buttons">
+        <div class="stack_counter">[18]</div>
+        <a class="emoji_button" href="#">[➕]</a>
+        <a class="emoji_button" href="#">[▶️]</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <!-- TODO: Реализовать разбиение на страницы в view
+-->
+  <div class="pagination content">
+    <a href="#" class="emoji_button">⬅️</a>
+    <div class="pages">
+      <a href="#" class="page">1</a>
+      <a href="#" class="page">2</a>
+      <a href="#" class="page">3</a>
+      <a href="#" class="page">4</a>
+      <a href="#" class="page">5</a>
+    </div>
+    <a href="#" class="emoji_button">➡️</a>
+  </div>
+</body>
+
+</html>

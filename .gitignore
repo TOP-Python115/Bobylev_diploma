@@ -3,3 +3,5 @@ venv
 
 **/__pycache__
 **/*.py[com]
+
+**/.DS_store

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Chapter(models.Model):
     name = models.CharField(max_length=20, unique=True)
     description = models.CharField(max_length=20, default='')
-    image_url = models.CharField(max_length=100)
+    image_url = models.CharField(max_length=100, default='', blank=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
